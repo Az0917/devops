@@ -3,10 +3,36 @@ def call(Map param){
 
         agent any
 
+        tools{
+            nodejs 'NodeJS'
+        }
         stages{
-            stage('Test'){
+
+            stage('Clean Workspace'){
                 steps{
-                    sh 'echo prueba'
+                    script{
+                        def clean = new org.devops.lbClean()
+                        clean.clean()
+                    }
+                }
+            }
+
+            stage('Checkout'){
+                steps{
+                    script{
+                        def repo = new org.devops.lbBuild()
+                        repo.checkGit(scmUrl:param.scmUrl)
+                        repo.install()
+                        repo.build()
+                    }
+                }
+            }
+            stage('Sonar'){
+                steps{
+                    script{
+                        def ana = new org.devops.lbSonar()
+                        ana.analisisSonar()
+                    }
                 }
             }
         }
