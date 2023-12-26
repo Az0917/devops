@@ -8,8 +8,8 @@ def analisisSonar(){
             -Dsonar.projectKey='NodeJSApp' \
             -Dsonar.projectName='NodeJSApp' \
             -Dsonar.sources=src \
-            -Dsonar.tests=src/_test_ \
-            -Dsonar.exclusions=src/_test_/** \
+            -Dsonar.tests=src/__test__ \
+            -Dsonar.exclusions=src/__test__/** \
             -Dsonar.testExecutionReportPaths=./test-report.xml \
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info"
         }
