@@ -24,6 +24,7 @@ def call(Map param){
                         repo.checkGit(scmUrl:param.scmUrl)
                         repo.install()
                         repo.build()
+                        repo.test()
                     }
                 }
             }
