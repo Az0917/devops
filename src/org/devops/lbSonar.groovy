@@ -2,7 +2,7 @@ package org.devops
 
 def analisisSonar(){
     def scannerHome = tool 'sonnar'
-    if(scannerTool){
+    if(scannerHome){
         withSonarQubeEnv('sonnar'){
             sh "${scannerHome}/bin/sonar-scanner \
             -Dsonar.projectKey='NodeJSApp' \
