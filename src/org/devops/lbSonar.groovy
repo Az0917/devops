@@ -4,7 +4,7 @@ def analisisSonar(){
     def scannerHome = tool 'sonnar'
     if(scannerTool){
         withSonarQubeEnv('sonnar'){
-            sh "${scannerHome}/bin/sonnar \
+            sh "${scannerHome}/bin/sonar-scanner \
             -Dsonar.projectKey='NodeJSApp' \
             -Dsonar.projectName='NodeJSApp' \
             -Dsonar.sources=src \
