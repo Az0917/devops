@@ -1,4 +1,4 @@
 package org.devops
-def call(){
+def buildDockerImage(){
     def dockerImage = docker.build("daz2023/nodeJSApp")
 }
