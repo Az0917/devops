@@ -47,7 +47,7 @@ def call(Map param){
                 steps{
                     script{
                         def dockerImage = new org.devops.lb_buildimagen()
-                        dockerImage.buildDockerImage()
+                        dockerImage()
                     }
                 }
             }
