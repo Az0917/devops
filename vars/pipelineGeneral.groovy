@@ -24,15 +24,14 @@ def call(Map param){
                         repo.checkGit(scmUrl:param.scmUrl)
                         repo.install()
                         repo.build()
-                        repo.test()
                     }
                 }
             }
-            stage('Build Docker Image'){
+            stage('Test NodeJSApp'){
                 steps{
                     script{
-                        def dockerImage = new org.devops.lb_buildimagen()
-                        dockerImage()
+                        def repo = new org.devops.lbBuild()
+                        repo.test()
                     }
                 }
             }
@@ -44,7 +43,15 @@ def call(Map param){
                     }
                 }
             }*/
+            stage('Build Docker Image'){
+                steps{
+                    script{
+                        def dockerImage = new org.devops.lb_buildimagen()
+                        dockerImage.buildDockerImage()
+                    }
+                }
+            }
+            
         }
     }
-    
 }
