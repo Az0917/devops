@@ -27,7 +27,7 @@ def call(Map param){
                     }
                 }
             }
-            stage('Test NodeJSApp'){
+            /*stage('Test NodeJSApp'){
                 steps{
                     script{
                         def repo = new org.devops.lbBuild()
@@ -35,7 +35,7 @@ def call(Map param){
                     }
                 }
             }
-            /*stage('Sonar'){
+            stage('Sonar'){
                 steps{
                     script{
                         def ana = new org.devops.lbSonar()
