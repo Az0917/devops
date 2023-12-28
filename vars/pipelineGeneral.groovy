@@ -30,8 +30,10 @@ def call(Map param){
             }
             stage('Build Docker Image'){
                 steps{
-                    def dockerImage = new org.devops.lb_buildimagen()
-                    dockerImage()
+                    script{
+                        def dockerImage = new org.devops.lb_buildimagen()
+                        dockerImage()
+                    }
                 }
             }
             /*stage('Sonar'){
