@@ -51,7 +51,14 @@ def call(Map param){
                     }
                 }
             }
-            
+            stage('Publish Docker Image'){
+                steps{
+                    script{
+                        def publishImage = new org.devops.lb_publicardockerhub()
+                        publishImage()
+                    }
+                }
+            }
         }
     }
 }
