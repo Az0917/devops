@@ -1,4 +1,6 @@
 package org.devops
 def call (){
-      sh 'docker compose up -d'
+      withEnv(["repoName=daz2023","BUILD_ID=latest"]) {
+        sh 'docker-compose up -d'
+    }
 }
