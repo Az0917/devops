@@ -1,7 +1,8 @@
 package org.devops
 def call (){
-      withEnv(["USER=daz2023","REPO=nodejsapp","BUILD_ID=latest"]) {   
-            sh 'echo $USER'
-            sh 'docker compose up -d'
+    def repoName = 'nodejsapp'
+    def user = 'daz2023'
+    withEnv(["USER=${user}","REPO=${repoName}","BUILD_ID=${env.BUILD_ID}"]) {
+        sh 'docker-compose up -d'
     }
 }
