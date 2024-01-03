@@ -1,6 +1,8 @@
 package org.devops
 def call (){
   {
-    sh 'docker compose up -d'
+    script{
+      sh 'docker compose up -d'
+    }
   }
 }
