@@ -1,6 +1,6 @@
 package org.devops
 def checkGit(Map param){
-    git branch:'develop', url: "${param.scmUrl}"
+    git url: "${param.scmUrl}"
 }
 
 def install(){
