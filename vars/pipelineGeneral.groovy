@@ -22,8 +22,8 @@ def call(Map param){
                     script{
                         def repo = new org.devops.lbBuild()
                         repo.checkGit(scmUrl:param.scmUrl)
-                        /*repo.install()
-                        repo.build()*/
+                        repo.install()
+                        repo.build()
                     }
                 }
             }
