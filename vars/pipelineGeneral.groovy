@@ -27,7 +27,7 @@ def call(Map param){
                     }
                 }
             }
-            /*stage('Test NodeJSApp'){
+            stage('Test NodeJSApp'){
                 steps{
                     script{
                         def repo = new org.devops.lbBuild()
@@ -43,27 +43,36 @@ def call(Map param){
                     }
                 }
             }
-            stage('Build Docker Image'){
-                steps{
-                    script{
-                        def dockerImage = new org.devops.lb_buildimagen()
-                        dockerImage()
+            stage('Develop stages'){
+                when{
+                    expression{
+                        return env.GIT_BRANCH == 'origin/develop'
                     }
-                }
-            }
-            stage('Publish Docker Image'){
-                steps{
-                    script{
-                        def publishImage = new org.devops.lb_publicardockerhub()
-                        publishImage()
                     }
-                }
-            }*/
-            stage('Deploy nodeJsApp'){
-                steps{
-                    script{
-                        def deployImage = new org.devops.lb_deploydocker()
-                        deployImage()
+                stages{
+                    stage('Build Docker Image'){
+                        steps{
+                            script{
+                                def dockerImage = new org.devops.lb_buildimagen()
+                                dockerImage()
+                            }
+                        }
+                    }
+                    stage('Publish Docker Image'){
+                        steps{
+                            script{
+                                def publishImage = new org.devops.lb_publicardockerhub()
+                                publishImage()
+                            }
+                        }
+                    }
+                    stage('Deploy nodeJsApp'){
+                        steps{
+                            script{
+                                def deployImage = new org.devops.lb_deploydocker()
+                                deployImage()
+                            }
+                        }
                     }
                 }
             }
