@@ -58,7 +58,7 @@ def call(Map param){
                         publishImage()
                     }
                 }
-            }*/
+            }
             stage('Deploy nodeJsApp'){
                 steps{
                     script{
@@ -66,7 +66,7 @@ def call(Map param){
                         deployImage()
                     }
                 }
-            }
+            }*/
         }
     }
 }
