@@ -42,7 +42,7 @@ def call(Map param){
                         ana.analisisSonar()
                     }
                 }
-            }*/
+            }
             stage('Build Docker Image'){
                 steps{
                     script{
@@ -56,6 +56,14 @@ def call(Map param){
                     script{
                         def publishImage = new org.devops.lb_publicardockerhub()
                         publishImage()
+                    }
+                }
+            }*/
+            stage('Deploy nodeJsApp'){
+                steps{
+                    script{
+                        def deployImage = new org.devops.lb_deploydocker()
+                        deployImage()
                     }
                 }
             }
